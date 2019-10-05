@@ -16,8 +16,9 @@ RUN echo "#define FAKELAG_CONFIGURABLE" >> include/config.h
 COPY config.settings .
 RUN ./Config -quick && make && make install
 
-# clean up
+# finish up
 WORKDIR /opt/unreal
+COPY conf/* conf
 RUN chown -R irc:irc /opt/unreal && rm -rf /root/dockerbuild
 
 VOLUME /opt/unreal/conf
