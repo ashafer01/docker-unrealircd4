@@ -26,7 +26,7 @@ VOLUME /opt/unreal/logs
 
 # start unreal
 USER irc:irc
-CMD ["/opt/unreal/4.2.4.1/bin/unrealircd", "-F"]
+CMD ["/opt/unreal/bin/unrealircd", "-F"]
 
 EXPOSE 6667
 EXPOSE 6697
