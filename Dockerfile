@@ -26,7 +26,10 @@ VOLUME /opt/unreal/logs
 
 # start unreal
 USER irc:irc
-CMD ["/opt/unreal/bin/unrealircd", "-F"]
+COPY docker-cmd.sh .
+RUN chmod u+x docker-cmd.sh
+CMD ["/opt/unreal/docker-cmd.sh"]
 
 EXPOSE 6667
 EXPOSE 6697
+EXPOSE 7000
