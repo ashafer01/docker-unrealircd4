@@ -13,7 +13,7 @@ take effect.
 
 ## Manually building the image from scratch
 
-1. Clone [docker-unreal-build](docker-unreal-build) and make a build
+1. Clone [docker-unreal-build](https://github.com/ashafer01/docker-unreal-build) and make a build
 image
 
 ```
