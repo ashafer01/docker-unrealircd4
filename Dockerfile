@@ -7,6 +7,9 @@ RUN apt-get -y update && apt-get -y install /tmp/ashafer01-unrealircd4_*.deb
 # copy in default configs
 COPY --chown=irc:irc conf/* /opt/unreal/conf/
 
+# copy in start script
+COPY --chown=irc:irc docker-cmd.sh /opt/unreal/
+
 # clean up
 RUN rm -f /tmp/ashafer01-unrealircd4_*.deb \
  && apt-get -y clean \
@@ -24,4 +27,4 @@ EXPOSE 7000
 
 # start unreal
 USER irc:irc
-CMD ["/opt/unreal/bin/unrealircd", "-F"]
+CMD ["/opt/unreal/docker-cmd.sh"]

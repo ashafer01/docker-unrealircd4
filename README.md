@@ -27,7 +27,7 @@ docker build -t unrealbuild .
 ```
 mkdir artifacts
 chmod a+w artifacts
-docker run -it --rm true -v $PWD/artifacts:/tmp/artifacts unrealbuild
+docker run -it --rm=true -v $PWD/artifacts:/tmp/artifacts unrealbuild
 ```
 
 3. Clone this repo and move the deb into the build context
