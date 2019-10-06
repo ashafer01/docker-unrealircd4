@@ -27,4 +27,5 @@ EXPOSE 7000
 
 # start unreal
 USER irc:irc
+WORKDIR /opt/unreal
 CMD ["/opt/unreal/docker-cmd.sh"]
