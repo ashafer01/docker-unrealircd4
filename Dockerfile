@@ -23,6 +23,7 @@ COPY --chown=irc:irc deb-skel/ /tmp/deb/
 WORKDIR /tmp
 
 RUN /tmp/build/build.sh
+LABEL stage=unreal-build
 
 
 ##
