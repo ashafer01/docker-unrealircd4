@@ -1,0 +1,8 @@
+Package: ashafer01-unrealircd4
+Version: 4.2.4.1
+Description: UnrealIRCd4 deb packaged by ashafer01
+Maintainer: Alex <ashafer01@github.com>
+Architecture: all
+Section: comm
+Essential: no
+Priority: optional

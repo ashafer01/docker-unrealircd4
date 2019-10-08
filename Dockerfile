@@ -1,7 +1,37 @@
+##
+## build
+##
+FROM ashafer01/ubuntu-base:18.04 AS build
+
+ENV UNREAL_VERSION=4.2.4.1
+
+RUN apt-get -y update && apt-get -y install \
+    file \
+    build-essential \
+    wget
+
+RUN mkdir -p /opt/unreal /tmp/build /tmp/deb /tmp/artifacts \
+ && chown irc:irc /opt/unreal /tmp/build /tmp/deb /tmp/artifacts
+
+USER irc:irc
+COPY --chown=irc:irc \
+    config.settings \
+    build.sh \
+    regen_cloak_keys.sh \
+    /tmp/build/
+COPY --chown=irc:irc deb-skel/ /tmp/deb/
+WORKDIR /tmp
+
+RUN /tmp/build/build.sh
+
+
+##
+## production
+##
 FROM ashafer01/ubuntu-base:18.04
 
 # install unreal package
-COPY ashafer01-unrealircd4_*.deb /tmp/
+COPY --from=build /tmp/artifacts/ashafer01-unrealircd4_*.deb /tmp/
 RUN apt-get -y update && apt-get -y install /tmp/ashafer01-unrealircd4_*.deb
 
 # copy in default configs
