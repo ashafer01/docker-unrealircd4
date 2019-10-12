@@ -2,6 +2,7 @@
 
 # generate new cloak keys config file
 
+set -e
 ck_conf="/opt/unreal/conf/cloak_keys.conf"
 
 echo -e "set {\n\tcloak-keys {" > "$ck_conf"
